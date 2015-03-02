@@ -1,0 +1,483 @@
+Public Class Form1
+    Const unavailableNumber As Integer = 1001 'Will work for up to 99 instructors - Far more than the current 6
+    Private Structure Element
+        Public value As Integer
+        Public numLines As Integer
+    End Structure
+    Dim table(5, 4) As Element 'Test Values
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub AddTestValues()
+        'TEST VALUES
+
+        table(1, 1).value = 10
+        table(1, 2).value = 10
+        table(1, 3).value = 10
+        table(1, 4).value = 10
+        table(2, 1).value = 0
+        table(2, 2).value = 10
+        table(2, 3).value = 20
+        table(2, 4).value = 10
+        table(3, 1).value = 10
+        table(3, 2).value = 20
+        table(3, 3).value = 20
+        table(3, 4).value = 10
+        table(4, 1).value = 0
+        table(4, 2).value = 10
+        table(4, 3).value = 20
+        table(4, 4).value = 20
+        table(5, 1).value = 10
+        table(5, 2).value = 50
+        table(5, 3).value = 20
+        table(5, 4).value = 30
+
+    End Sub
+
+    Private Sub AllocateInstructors()
+        'Create Table
+        Dim reduced As Boolean = False
+        Dim numLines As Integer = 0
+        Dim e As Integer
+        Dim allocation(table.GetLength(0) - 1, table.GetLength(1) - 1) As Boolean 'If worker i does task j, allocation(i,j) = True
+        Dim enoughWorkers As Boolean = False
+        Dim numDummies As Integer
+
+        AddTestValues()
+        'Check enoughWorkers
+        If table.GetLength(0) >= table.GetLength(1) Then
+            enoughWorkers = True
+        End If
+        If enoughWorkers Then
+            'Add Dummies if there are more workers than jobs. A worker assigned to a dummy will not be given a job.
+            If table.GetLength(0) > table.GetLength(1) Then
+                numDummies = AddDummies()
+            End If
+
+            'Reduce Rows
+            For i = 1 To 4 'Test value
+                For j = 1 To 4 'Test value, same as previous
+                    If table(i, j).value = 0 Then
+                        reduced = True
+                    End If
+                Next j
+                If Not reduced Then
+                    ReduceRow(i)
+                End If
+                reduced = False
+            Next i
+            'Reduce Columns
+            For i = 1 To 4 'Test Value
+                For j = 1 To 4
+                    If table(j, i).value = 0 Then
+                        reduced = True
+                    End If
+                Next j
+                If Not reduced Then
+                    ReduceColumn(i)
+                End If
+                reduced = False
+            Next i
+            'Do While Not Optimal
+            Do While Not isOptimal(numLines)
+
+
+                'Draw Line
+                numLines = DecideLines(numLines)
+
+                'Check Optimal
+                If Not isOptimal(numLines) Then
+
+
+                    'Find e
+                    e = FindElement()
+                    'Subtract e from uncovered elements
+                    SubtractElement(e)
+                    'Add e to double covered
+                    AddElement(e)
+                    'Remove Lines
+                    RemoveLines()
+                End If
+            Loop
+            'End Loop
+            allocation = Allocate()
+            'Remove Dummies
+            If numDummies > 0 Then
+                RemoveDummies(numDummies, allocation)
+            End If
+        Else
+            'End and tell user
+        End If
+    End Sub
+
+    Private Sub RemoveDummies(ByVal numToRemove As Integer, ByRef allocation(,) As Boolean)
+        Dim tableCopy(allocation.GetLength(0) - 1, allocation.GetLength(1) - 1) As Boolean
+        tableCopy = allocation
+        ReDim allocation(allocation.GetLength(0) - (numToRemove + 1), allocation.GetLength(1) - (numToRemove + 1))
+        For i = 1 To allocation.GetLength(0) - 1
+            For j = 1 To allocation.GetLength(1) - 1
+                allocation(i, j) = tableCopy(i, j)
+            Next j
+        Next i
+
+    End Sub
+
+    Private Function AddDummies() As Integer
+        Dim numToMake As Integer = table.GetLength(0) - table.GetLength(1)
+        Dim column As Integer
+        For i = 1 To numToMake
+            column = table.GetLength(1)
+            'Add a dummy job
+            ReDim Preserve table(table.GetLength(0) - 1, table.GetLength(1))
+            For j = 1 To table.GetLength(0) - 1
+                table(j, column).value = 0
+                'The cost of a dummy job = 0
+            Next j
+        Next i
+        Return numToMake
+    End Function
+
+    Private Function Allocate() As Boolean(,)
+        Dim workerTasks(table.GetLength(0) - 1, table.GetLength(1) - 1) As Boolean
+        Dim matching(workerTasks.GetLength(0) - 1, workerTasks.GetLength(1) - 1) As Boolean
+        Dim maximum As Boolean = False
+        Dim path(1) As Integer 'Worker, Task alternating
+        'Create Bipartite graph in table form
+        For i = 1 To workerTasks.GetLength(0) - 1
+            For j = 1 To workerTasks.GetLength(1) - 1
+                If table(i, j).value = 0 Then
+                    workerTasks(i, j) = True
+                Else : workerTasks(i, j) = False
+                End If
+            Next j
+        Next i
+
+        'Initial Matching
+        matching = InitialMatching(workerTasks)
+        'Loop while Not maximum (maximum if no breakthrough
+        Do While Not maximum
+            'improve matching
+            maximum = Not ImproveMatching(matching, workerTasks, path)
+            If Not maximum Then
+                ReversePath(matching, path)
+            End If
+        Loop
+        Return matching
+    End Function
+
+    Private Function ImproveMatching(ByRef matching(,) As Boolean, ByVal workerTasks(,) As Boolean, ByRef path() As Integer) As Boolean
+        Dim breakthrough As Boolean = False
+        Dim tempMatching(matching.GetLength(0) - 1, matching.GetLength(1) - 1) As Boolean
+        Dim isFree((matching.GetLength(0) - 1) + (matching.GetLength(1) - 1)) As Boolean
+        Dim ends() As Integer
+        Dim start As Integer
+        Dim isWorker As Boolean = True
+
+
+        For i = 1 To isFree.Length - 1
+            isFree(i) = True
+        Next i
+
+        tempMatching = matching
+        'Find starting point. First come first serve
+        start = FindStart(matching)
+        path(0) = start
+        'Find ends
+        ends = FindEnds(matching)
+        breakthrough = Alternate(workerTasks, matching, start, isWorker, ends, isFree, path, 1, False)
+        Return breakthrough
+    End Function
+
+    Private Sub ReversePath(ByRef matching(,) As Boolean, ByVal path() As Integer)
+        Dim worker, task As Integer
+        For i = 0 To path.Length / 2 Step 2
+            worker = path(i)
+            task = path(i + 1)
+            For j = 1 To matching.GetLength(0) - 1
+                'Clear worker and task
+                matching(j, task) = False
+                matching(worker, j) = False
+            Next j
+            'Add matching
+            matching(worker, task) = True
+        Next i
+
+    End Sub
+
+    Private Function Alternate(ByVal workerTasks(,) As Boolean, ByRef matching(,) As Boolean, ByVal start As Integer, ByVal isWorker As Boolean, ByVal ends() As Integer, ByRef isFree() As Boolean, ByRef path() As Integer, ByRef count As Integer, ByRef breakthrough As Boolean) As Boolean
+        Dim numOptions As Integer
+        Dim options(0) As Integer
+        Dim current As Integer = start
+        Dim isFreeCopy((matching.GetLength(0) - 1) + (matching.GetLength(1) - 1)) As Boolean
+        Dim count2 As Integer = 0
+        Dim maximum As Boolean = False
+
+        isFreeCopy = isFree 'To be passed in the loop
+
+        Do While Not breakthrough And Not maximum
+            If isWorker Then
+                isFree(start) = False
+                isFreeCopy(start) = False
+                'Find Options
+                numOptions = 0
+                For i = 1 To matching.GetLength(1) - 1
+                    If workerTasks(current, i) And isFree(i + matching.GetLength(0) - 1) Then
+                        options(options.Length - 1) = i
+                        ReDim Preserve options(options.Length)
+                        numOptions = numOptions + 1
+                    End If
+                Next i
+                'Check for end
+                For i = 0 To numOptions - 1
+                    For j = 0 To ends.Length - 2
+                        If options(i) = ends(j) Then
+                            path(count) = options(i)
+                            breakthrough = True
+                        End If
+                    Next j
+                Next i
+                'Choose next value
+                Do While Not breakthrough And numOptions > 0 And count2 <= options.Length - 1
+                    'Update path
+                    path(count) = options(count2)
+                    ReDim Preserve path(count + 1)
+                    'repeat for next value
+                    breakthrough = Alternate(workerTasks, matching, options(count2), Not isWorker, ends, isFree, path, count + 1, breakthrough)
+                Loop
+                If Not breakthrough Then
+                    maximum = True
+                End If
+            Else 'Is not worker
+                Dim found As Boolean = False
+                'update isFree
+                isFree(start + matching.GetLength(0) - 1) = False
+                isFreeCopy(start + matching.GetLength(0) - 1) = False
+                'Find next step
+                Do Until found
+                    count2 = count2 + 1
+                    If workerTasks(count2, start) And isFree(count2) Then
+                        found = True
+                    End If
+                Loop
+                If found Then
+                    'Update path
+                    path(count) = count2
+                    ReDim Preserve path(count + 1)
+                    'repeat fo next value
+                    If Not breakthrough Then
+                        breakthrough = Alternate(workerTasks, matching, count2, Not isWorker, ends, isFreeCopy, path, count + 1, breakthrough)
+                    End If
+                End If
+            End If
+        Loop
+        Return breakthrough
+    End Function
+
+    Private Function FindStart(ByVal matching(,) As Boolean) As Integer
+        Dim start As Integer
+        Dim match As Boolean = True
+        For i = 1 To matching.GetLength(0) - 1
+            If match Then
+                match = False
+                For j = 1 To matching.GetLength(1) - 1
+                    If matching(i, j) Then
+                        match = True
+                    End If
+                Next j
+                If Not match Then
+                    start = i
+                End If
+            End If
+        Next i
+
+        Return start
+    End Function
+
+    Private Function FindEnds(ByVal matching(,) As Boolean) As Integer()
+        Dim ends(0) As Integer
+        Dim match As Boolean
+
+        For i = 1 To matching.GetLength(0) - 1
+            match = False
+            For j = 1 To matching.GetLength(1) - 1
+                If matching(j, i) Then
+                    match = True
+                End If
+            Next j
+            If Not match Then
+                ends(ends.Length - 1) = i
+                ReDim Preserve ends(ends.Length)
+            End If
+        Next i
+
+        Return ends
+    End Function
+
+    Private Function InitialMatching(ByVal workerTasks(,) As Boolean) As Boolean(,)
+        'First come, first serve
+        Dim matching(workerTasks.GetLength(0) - 1, workerTasks.GetLength(1) - 1) As Boolean
+        Dim tasks(workerTasks.GetLength(1) - 1) As Boolean
+        Dim match As Boolean
+        For i = 1 To workerTasks.GetLength(0) - 1
+            match = False
+            For j = 1 To workerTasks.GetLength(1) - 1
+                If Not match And Not tasks(j) Then
+                    If workerTasks(i, j) = True Then
+                        matching(i, j) = True
+                        tasks(j) = True
+                        match = True
+                    End If
+                End If
+            Next j
+            match = False
+        Next i
+        Return matching
+    End Function
+
+    Private Sub RemoveLines()
+        For i = 1 To table.GetLength(0) - 1
+            For j = 1 To table.GetLength(1) - 1
+                table(i, j).numLines = 0
+            Next j
+        Next i
+    End Sub
+
+    Private Sub AddElement(ByVal e As Integer)
+        For i = 1 To table.GetLength(0) - 1
+            For j = 1 To table.GetLength(1) - 1
+                If table(i, j).numLines = 2 Then
+                    table(i, j).value = table(i, j).value + e
+                End If
+            Next j
+        Next i
+    End Sub
+
+    Private Sub SubtractElement(ByVal e As Integer)
+        For i = 1 To table.GetLength(0) - 1
+            For j = 1 To table.GetLength(1) - 1
+                If table(i, j).numLines = 0 Then
+                    table(i, j).value = table(i, j).value - e
+                End If
+            Next j
+        Next i
+    End Sub
+
+    Private Function FindElement() As Integer
+        Dim e As Integer = unavailableNumber
+        'Go through each element and record the smallest uncovered element
+        For i = 1 To table.GetLength(0) - 1
+            For j = 1 To table.GetLength(1) - 1
+                If table(i, j).numLines = 0 And table(i, j).value <> 0 And table(i, j).value < e Then
+                    e = table(i, j).value
+                End If
+            Next j
+        Next i
+
+        Return e
+    End Function
+
+    Private Function isOptimal(ByVal numLines As Integer) As Boolean
+        Dim optimal As Boolean = False
+        'If the number of lines is equal to the number of workers then the solution is optimal
+        If numLines = table.GetLength(0) - 1 Then
+            optimal = True
+        End If
+        Return optimal
+    End Function
+
+    Private Sub ReduceRow(ByVal row As Integer)
+        Dim minVal As Integer
+        'Find the smallest element in the row. Subtract this from every element in the row because the algorithm deals with relative values.
+        minVal = table(row, 1).value
+        For i = 2 To table.GetLength(0) - 1
+            If table(row, i).value < minVal Then
+                minVal = table(row, i).value
+            End If
+        Next i
+        For i = 1 To table.GetLength(0) - 1
+            table(row, i).value = table(row, i).value - minVal
+        Next i
+    End Sub
+
+    Private Sub ReduceColumn(ByVal column As Integer)
+        Dim minVal As Integer
+        minVal = table(1, column).value
+        For i = 2 To table.GetLength(1) - 1
+            If table(i, column).value < minVal Then
+                minVal = table(i, column).value
+            End If
+        Next i
+        For i = 1 To table.GetLength(1) - 1
+            table(i, column).value = table(i, column).value - minVal
+        Next i
+    End Sub
+
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        AllocateInstructors()
+    End Sub
+
+    Private Function DecideLines(ByVal numLines As Integer) As Integer
+        Dim numZeros((table.GetLength(0) - 1) + (table.GetLength(1) - 1)) As Integer 'Rows then columns
+        Dim count As Integer
+        Dim numForLine As Integer = 0
+        'Draw the line that will cover the most zeros. If tie, draw the first one.
+        'Check rows
+        For i = 1 To table.GetLength(0) - 1
+            count = 0
+            For j = 1 To table.GetLength(1) - 1
+                If table(i, j).value = 0 And table(i, j).numLines = 0 Then
+                    count = count + 1
+                End If
+            Next j
+            numZeros(i) = count
+        Next i
+        'Check columns
+        For i = 1 To (numZeros.Length - 1) - (table.GetLength(0) - 1)
+            count = 0
+            For j = 1 To table.GetLength(0) - 1
+                If table(j, i).value = 0 And table(j, i).numLines = 0 Then
+                    count = count + 1
+                End If
+            Next j
+            numZeros(i + table.GetLength(0) - 1) = count
+        Next i
+
+        'Find largest amount
+        count = 0
+        For i = 1 To numZeros.Length - 1
+            If numZeros(i) > count Then
+                count = numZeros(i)
+                numForLine = i
+            End If
+        Next i
+
+        'Draw Line
+        If count > 0 Then
+            If numForLine <= table.GetLength(0) - 1 Then
+                DrawLine(True, numForLine)
+            Else
+                DrawLine(False, numForLine - (table.GetLength(0) - 1))
+            End If
+            numLines = numLines + 1
+            'Repeat until count = 0
+            DecideLines(numLines)
+        End If
+
+        Return numLines
+    End Function
+
+    Private Sub DrawLine(ByVal isRow As Boolean, ByVal num As Integer)
+        If isRow Then
+            For i = 1 To table.GetLength(0) - 1
+                table(num, i).numLines = table(num, i).numLines + 1
+            Next i
+        Else
+            For i = 1 To table.GetLength(1) - 1
+                table(i, num).numLines = table(i, num).numLines + 1
+            Next i
+        End If
+    End Sub
+
+End Class
