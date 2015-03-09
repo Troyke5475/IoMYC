@@ -29,6 +29,12 @@ Partial Class View_Schedule
         Me.lblWednesday = New System.Windows.Forms.Label()
         Me.lblTuesday = New System.Windows.Forms.Label()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.RectangleShape5 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.RectangleShape4 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rectWed1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rectWed2 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rectThur2 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rectThur1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.rectTue1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.rectTue2 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.rectMon2 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
@@ -69,34 +75,56 @@ Partial Class View_Schedule
         Me.lblTue2Chief = New System.Windows.Forms.Label()
         Me.lblTue2Support = New System.Windows.Forms.Label()
         Me.txtTue2Support = New System.Windows.Forms.TextBox()
+        Me.txtThur2Support = New System.Windows.Forms.TextBox()
+        Me.lblThur2Support = New System.Windows.Forms.Label()
+        Me.lblThur2Course = New System.Windows.Forms.Label()
+        Me.txtThur1Support = New System.Windows.Forms.TextBox()
+        Me.lblThur2Chief = New System.Windows.Forms.Label()
+        Me.lblThur1Support = New System.Windows.Forms.Label()
+        Me.txtThur1Course = New System.Windows.Forms.TextBox()
+        Me.lblThur1Chief = New System.Windows.Forms.Label()
+        Me.txtThur2Chief = New System.Windows.Forms.TextBox()
+        Me.txtThur2Course = New System.Windows.Forms.TextBox()
+        Me.lblThur1Course = New System.Windows.Forms.Label()
+        Me.txtThur1Chief = New System.Windows.Forms.TextBox()
+        Me.lblWed2Support = New System.Windows.Forms.Label()
+        Me.lblWed2Chief = New System.Windows.Forms.Label()
+        Me.txtWed1Course = New System.Windows.Forms.TextBox()
+        Me.txtWed2Chief = New System.Windows.Forms.TextBox()
+        Me.lblWed1Course = New System.Windows.Forms.Label()
+        Me.lblWed2Course = New System.Windows.Forms.Label()
+        Me.txtWed1Chief = New System.Windows.Forms.TextBox()
+        Me.txtWed2Course = New System.Windows.Forms.TextBox()
+        Me.lblWed1Chief = New System.Windows.Forms.Label()
+        Me.lblWed1Support = New System.Windows.Forms.Label()
+        Me.txtWed1Support = New System.Windows.Forms.TextBox()
+        Me.txtWed2Support = New System.Windows.Forms.TextBox()
+        Me.txtFri2Support = New System.Windows.Forms.TextBox()
+        Me.lblFri2Support = New System.Windows.Forms.Label()
+        Me.lblFri2Course = New System.Windows.Forms.Label()
+        Me.txtFri1Support = New System.Windows.Forms.TextBox()
+        Me.lblFri2Chief = New System.Windows.Forms.Label()
+        Me.lblFri1Support = New System.Windows.Forms.Label()
+        Me.txtFri1Course = New System.Windows.Forms.TextBox()
+        Me.lblFri1Chief = New System.Windows.Forms.Label()
+        Me.txtFri2Chief = New System.Windows.Forms.TextBox()
+        Me.txtFri2Course = New System.Windows.Forms.TextBox()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.txtFri1Chief = New System.Windows.Forms.TextBox()
+        Me.txtSat2Support = New System.Windows.Forms.TextBox()
+        Me.lblSat2Support = New System.Windows.Forms.Label()
+        Me.lblSat2Course = New System.Windows.Forms.Label()
+        Me.txtSat1Support = New System.Windows.Forms.TextBox()
+        Me.lblSat2Chief = New System.Windows.Forms.Label()
+        Me.lblSat1Support = New System.Windows.Forms.Label()
+        Me.txtSat1Course = New System.Windows.Forms.TextBox()
+        Me.lblSat1Chief = New System.Windows.Forms.Label()
+        Me.txtSat2Chief = New System.Windows.Forms.TextBox()
+        Me.txtSat2Course = New System.Windows.Forms.TextBox()
+        Me.lblSat1Course = New System.Windows.Forms.Label()
+        Me.txtSat1Chief = New System.Windows.Forms.TextBox()
         Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.RectangleShape2 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.RectangleShape3 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.rectWed1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.TextBox12 = New System.Windows.Forms.TextBox()
-        Me.TextBox13 = New System.Windows.Forms.TextBox()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.TextBox14 = New System.Windows.Forms.TextBox()
-        Me.TextBox15 = New System.Windows.Forms.TextBox()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.TextBox16 = New System.Windows.Forms.TextBox()
-        Me.TextBox17 = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'lblMonday
@@ -112,7 +140,7 @@ Partial Class View_Schedule
         'lblSaturday
         '
         Me.lblSaturday.AutoSize = True
-        Me.lblSaturday.Location = New System.Drawing.Point(1200, 9)
+        Me.lblSaturday.Location = New System.Drawing.Point(1192, 9)
         Me.lblSaturday.Margin = New System.Windows.Forms.Padding(10, 0, 10, 0)
         Me.lblSaturday.Name = "lblSaturday"
         Me.lblSaturday.Size = New System.Drawing.Size(156, 39)
@@ -122,7 +150,7 @@ Partial Class View_Schedule
         'lblFriday
         '
         Me.lblFriday.AutoSize = True
-        Me.lblFriday.Location = New System.Drawing.Point(1003, 9)
+        Me.lblFriday.Location = New System.Drawing.Point(1002, 9)
         Me.lblFriday.Margin = New System.Windows.Forms.Padding(10, 0, 10, 0)
         Me.lblFriday.Name = "lblFriday"
         Me.lblFriday.Size = New System.Drawing.Size(114, 39)
@@ -164,10 +192,46 @@ Partial Class View_Schedule
         Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rectWed1, Me.RectangleShape3, Me.RectangleShape2, Me.RectangleShape1, Me.rectTue1, Me.rectTue2, Me.rectMon2, Me.rectMon1})
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape2, Me.RectangleShape1, Me.RectangleShape5, Me.RectangleShape4, Me.rectWed1, Me.rectWed2, Me.rectThur2, Me.rectThur1, Me.rectTue1, Me.rectTue2, Me.rectMon2, Me.rectMon1})
         Me.ShapeContainer1.Size = New System.Drawing.Size(1368, 881)
         Me.ShapeContainer1.TabIndex = 6
         Me.ShapeContainer1.TabStop = False
+        '
+        'RectangleShape5
+        '
+        Me.RectangleShape5.Location = New System.Drawing.Point(976, 72)
+        Me.RectangleShape5.Name = "RectangleShape5"
+        Me.RectangleShape5.Size = New System.Drawing.Size(165, 256)
+        '
+        'RectangleShape4
+        '
+        Me.RectangleShape4.Location = New System.Drawing.Point(976, 433)
+        Me.RectangleShape4.Name = "RectangleShape4"
+        Me.RectangleShape4.Size = New System.Drawing.Size(165, 256)
+        '
+        'rectWed1
+        '
+        Me.rectWed1.Location = New System.Drawing.Point(486, 72)
+        Me.rectWed1.Name = "rectWed1"
+        Me.rectWed1.Size = New System.Drawing.Size(165, 256)
+        '
+        'rectWed2
+        '
+        Me.rectWed2.Location = New System.Drawing.Point(486, 433)
+        Me.rectWed2.Name = "rectWed2"
+        Me.rectWed2.Size = New System.Drawing.Size(165, 256)
+        '
+        'rectThur2
+        '
+        Me.rectThur2.Location = New System.Drawing.Point(754, 433)
+        Me.rectThur2.Name = "rectThur2"
+        Me.rectThur2.Size = New System.Drawing.Size(165, 256)
+        '
+        'rectThur1
+        '
+        Me.rectThur1.Location = New System.Drawing.Point(754, 72)
+        Me.rectThur1.Name = "rectThur1"
+        Me.rectThur1.Size = New System.Drawing.Size(165, 256)
         '
         'rectTue1
         '
@@ -542,291 +606,535 @@ Partial Class View_Schedule
         Me.txtTue2Support.Size = New System.Drawing.Size(149, 22)
         Me.txtTue2Support.TabIndex = 19
         '
+        'txtThur2Support
+        '
+        Me.txtThur2Support.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtThur2Support.Location = New System.Drawing.Point(765, 656)
+        Me.txtThur2Support.Name = "txtThur2Support"
+        Me.txtThur2Support.ReadOnly = True
+        Me.txtThur2Support.Size = New System.Drawing.Size(149, 22)
+        Me.txtThur2Support.TabIndex = 43
+        '
+        'lblThur2Support
+        '
+        Me.lblThur2Support.AutoSize = True
+        Me.lblThur2Support.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblThur2Support.Location = New System.Drawing.Point(789, 593)
+        Me.lblThur2Support.Name = "lblThur2Support"
+        Me.lblThur2Support.Size = New System.Drawing.Size(101, 50)
+        Me.lblThur2Support.TabIndex = 41
+        Me.lblThur2Support.Text = "Support" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Instructor"
+        Me.lblThur2Support.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'lblThur2Course
+        '
+        Me.lblThur2Course.AutoSize = True
+        Me.lblThur2Course.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblThur2Course.Location = New System.Drawing.Point(799, 447)
+        Me.lblThur2Course.Name = "lblThur2Course"
+        Me.lblThur2Course.Size = New System.Drawing.Size(81, 25)
+        Me.lblThur2Course.TabIndex = 34
+        Me.lblThur2Course.Text = "Course"
+        '
+        'txtThur1Support
+        '
+        Me.txtThur1Support.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtThur1Support.Location = New System.Drawing.Point(765, 294)
+        Me.txtThur1Support.Name = "txtThur1Support"
+        Me.txtThur1Support.ReadOnly = True
+        Me.txtThur1Support.Size = New System.Drawing.Size(149, 22)
+        Me.txtThur1Support.TabIndex = 28
+        '
+        'lblThur2Chief
+        '
+        Me.lblThur2Chief.AutoSize = True
+        Me.lblThur2Chief.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblThur2Chief.Location = New System.Drawing.Point(761, 520)
+        Me.lblThur2Chief.Name = "lblThur2Chief"
+        Me.lblThur2Chief.Size = New System.Drawing.Size(157, 25)
+        Me.lblThur2Chief.TabIndex = 39
+        Me.lblThur2Chief.Text = "Chief Instructor"
+        '
+        'lblThur1Support
+        '
+        Me.lblThur1Support.AutoSize = True
+        Me.lblThur1Support.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblThur1Support.Location = New System.Drawing.Point(789, 231)
+        Me.lblThur1Support.Name = "lblThur1Support"
+        Me.lblThur1Support.Size = New System.Drawing.Size(101, 50)
+        Me.lblThur1Support.TabIndex = 31
+        Me.lblThur1Support.Text = "Support" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Instructor"
+        Me.lblThur1Support.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'txtThur1Course
+        '
+        Me.txtThur1Course.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtThur1Course.Location = New System.Drawing.Point(765, 123)
+        Me.txtThur1Course.Name = "txtThur1Course"
+        Me.txtThur1Course.ReadOnly = True
+        Me.txtThur1Course.Size = New System.Drawing.Size(149, 22)
+        Me.txtThur1Course.TabIndex = 21
+        '
+        'lblThur1Chief
+        '
+        Me.lblThur1Chief.AutoSize = True
+        Me.lblThur1Chief.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblThur1Chief.Location = New System.Drawing.Point(761, 158)
+        Me.lblThur1Chief.Name = "lblThur1Chief"
+        Me.lblThur1Chief.Size = New System.Drawing.Size(157, 25)
+        Me.lblThur1Chief.TabIndex = 26
+        Me.lblThur1Chief.Text = "Chief Instructor"
+        '
+        'txtThur2Chief
+        '
+        Me.txtThur2Chief.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtThur2Chief.Location = New System.Drawing.Point(765, 558)
+        Me.txtThur2Chief.Name = "txtThur2Chief"
+        Me.txtThur2Chief.ReadOnly = True
+        Me.txtThur2Chief.Size = New System.Drawing.Size(149, 22)
+        Me.txtThur2Chief.TabIndex = 37
+        '
+        'txtThur2Course
+        '
+        Me.txtThur2Course.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtThur2Course.Location = New System.Drawing.Point(765, 485)
+        Me.txtThur2Course.Name = "txtThur2Course"
+        Me.txtThur2Course.ReadOnly = True
+        Me.txtThur2Course.Size = New System.Drawing.Size(149, 22)
+        Me.txtThur2Course.TabIndex = 32
+        '
+        'lblThur1Course
+        '
+        Me.lblThur1Course.AutoSize = True
+        Me.lblThur1Course.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblThur1Course.Location = New System.Drawing.Point(799, 85)
+        Me.lblThur1Course.Name = "lblThur1Course"
+        Me.lblThur1Course.Size = New System.Drawing.Size(81, 25)
+        Me.lblThur1Course.TabIndex = 23
+        Me.lblThur1Course.Text = "Course"
+        '
+        'txtThur1Chief
+        '
+        Me.txtThur1Chief.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtThur1Chief.Location = New System.Drawing.Point(765, 196)
+        Me.txtThur1Chief.Name = "txtThur1Chief"
+        Me.txtThur1Chief.ReadOnly = True
+        Me.txtThur1Chief.Size = New System.Drawing.Size(149, 22)
+        Me.txtThur1Chief.TabIndex = 24
+        '
+        'lblWed2Support
+        '
+        Me.lblWed2Support.AutoSize = True
+        Me.lblWed2Support.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWed2Support.Location = New System.Drawing.Point(520, 593)
+        Me.lblWed2Support.Name = "lblWed2Support"
+        Me.lblWed2Support.Size = New System.Drawing.Size(101, 50)
+        Me.lblWed2Support.TabIndex = 42
+        Me.lblWed2Support.Text = "Support" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Instructor"
+        Me.lblWed2Support.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'lblWed2Chief
+        '
+        Me.lblWed2Chief.AutoSize = True
+        Me.lblWed2Chief.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWed2Chief.Location = New System.Drawing.Point(492, 520)
+        Me.lblWed2Chief.Name = "lblWed2Chief"
+        Me.lblWed2Chief.Size = New System.Drawing.Size(157, 25)
+        Me.lblWed2Chief.TabIndex = 38
+        Me.lblWed2Chief.Text = "Chief Instructor"
+        '
+        'txtWed1Course
+        '
+        Me.txtWed1Course.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtWed1Course.Location = New System.Drawing.Point(496, 123)
+        Me.txtWed1Course.Name = "txtWed1Course"
+        Me.txtWed1Course.ReadOnly = True
+        Me.txtWed1Course.Size = New System.Drawing.Size(149, 22)
+        Me.txtWed1Course.TabIndex = 20
+        '
+        'txtWed2Chief
+        '
+        Me.txtWed2Chief.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtWed2Chief.Location = New System.Drawing.Point(496, 558)
+        Me.txtWed2Chief.Name = "txtWed2Chief"
+        Me.txtWed2Chief.ReadOnly = True
+        Me.txtWed2Chief.Size = New System.Drawing.Size(149, 22)
+        Me.txtWed2Chief.TabIndex = 36
+        '
+        'lblWed1Course
+        '
+        Me.lblWed1Course.AutoSize = True
+        Me.lblWed1Course.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWed1Course.Location = New System.Drawing.Point(530, 85)
+        Me.lblWed1Course.Name = "lblWed1Course"
+        Me.lblWed1Course.Size = New System.Drawing.Size(81, 25)
+        Me.lblWed1Course.TabIndex = 22
+        Me.lblWed1Course.Text = "Course"
+        '
+        'lblWed2Course
+        '
+        Me.lblWed2Course.AutoSize = True
+        Me.lblWed2Course.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWed2Course.Location = New System.Drawing.Point(530, 447)
+        Me.lblWed2Course.Name = "lblWed2Course"
+        Me.lblWed2Course.Size = New System.Drawing.Size(81, 25)
+        Me.lblWed2Course.TabIndex = 35
+        Me.lblWed2Course.Text = "Course"
+        '
+        'txtWed1Chief
+        '
+        Me.txtWed1Chief.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtWed1Chief.Location = New System.Drawing.Point(496, 196)
+        Me.txtWed1Chief.Name = "txtWed1Chief"
+        Me.txtWed1Chief.ReadOnly = True
+        Me.txtWed1Chief.Size = New System.Drawing.Size(149, 22)
+        Me.txtWed1Chief.TabIndex = 25
+        '
+        'txtWed2Course
+        '
+        Me.txtWed2Course.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtWed2Course.Location = New System.Drawing.Point(496, 485)
+        Me.txtWed2Course.Name = "txtWed2Course"
+        Me.txtWed2Course.ReadOnly = True
+        Me.txtWed2Course.Size = New System.Drawing.Size(149, 22)
+        Me.txtWed2Course.TabIndex = 33
+        '
+        'lblWed1Chief
+        '
+        Me.lblWed1Chief.AutoSize = True
+        Me.lblWed1Chief.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWed1Chief.Location = New System.Drawing.Point(492, 158)
+        Me.lblWed1Chief.Name = "lblWed1Chief"
+        Me.lblWed1Chief.Size = New System.Drawing.Size(157, 25)
+        Me.lblWed1Chief.TabIndex = 27
+        Me.lblWed1Chief.Text = "Chief Instructor"
+        '
+        'lblWed1Support
+        '
+        Me.lblWed1Support.AutoSize = True
+        Me.lblWed1Support.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWed1Support.Location = New System.Drawing.Point(520, 231)
+        Me.lblWed1Support.Name = "lblWed1Support"
+        Me.lblWed1Support.Size = New System.Drawing.Size(101, 50)
+        Me.lblWed1Support.TabIndex = 30
+        Me.lblWed1Support.Text = "Support" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Instructor"
+        Me.lblWed1Support.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'txtWed1Support
+        '
+        Me.txtWed1Support.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtWed1Support.Location = New System.Drawing.Point(496, 294)
+        Me.txtWed1Support.Name = "txtWed1Support"
+        Me.txtWed1Support.ReadOnly = True
+        Me.txtWed1Support.Size = New System.Drawing.Size(149, 22)
+        Me.txtWed1Support.TabIndex = 29
+        '
+        'txtWed2Support
+        '
+        Me.txtWed2Support.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtWed2Support.Location = New System.Drawing.Point(496, 656)
+        Me.txtWed2Support.Name = "txtWed2Support"
+        Me.txtWed2Support.ReadOnly = True
+        Me.txtWed2Support.Size = New System.Drawing.Size(149, 22)
+        Me.txtWed2Support.TabIndex = 40
+        '
+        'txtFri2Support
+        '
+        Me.txtFri2Support.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFri2Support.Location = New System.Drawing.Point(985, 656)
+        Me.txtFri2Support.Name = "txtFri2Support"
+        Me.txtFri2Support.ReadOnly = True
+        Me.txtFri2Support.Size = New System.Drawing.Size(149, 22)
+        Me.txtFri2Support.TabIndex = 56
+        '
+        'lblFri2Support
+        '
+        Me.lblFri2Support.AutoSize = True
+        Me.lblFri2Support.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFri2Support.Location = New System.Drawing.Point(1009, 593)
+        Me.lblFri2Support.Name = "lblFri2Support"
+        Me.lblFri2Support.Size = New System.Drawing.Size(101, 50)
+        Me.lblFri2Support.TabIndex = 55
+        Me.lblFri2Support.Text = "Support" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Instructor"
+        Me.lblFri2Support.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'lblFri2Course
+        '
+        Me.lblFri2Course.AutoSize = True
+        Me.lblFri2Course.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFri2Course.Location = New System.Drawing.Point(1019, 447)
+        Me.lblFri2Course.Name = "lblFri2Course"
+        Me.lblFri2Course.Size = New System.Drawing.Size(81, 25)
+        Me.lblFri2Course.TabIndex = 52
+        Me.lblFri2Course.Text = "Course"
+        '
+        'txtFri1Support
+        '
+        Me.txtFri1Support.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFri1Support.Location = New System.Drawing.Point(985, 294)
+        Me.txtFri1Support.Name = "txtFri1Support"
+        Me.txtFri1Support.ReadOnly = True
+        Me.txtFri1Support.Size = New System.Drawing.Size(149, 22)
+        Me.txtFri1Support.TabIndex = 49
+        '
+        'lblFri2Chief
+        '
+        Me.lblFri2Chief.AutoSize = True
+        Me.lblFri2Chief.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFri2Chief.Location = New System.Drawing.Point(981, 520)
+        Me.lblFri2Chief.Name = "lblFri2Chief"
+        Me.lblFri2Chief.Size = New System.Drawing.Size(157, 25)
+        Me.lblFri2Chief.TabIndex = 54
+        Me.lblFri2Chief.Text = "Chief Instructor"
+        '
+        'lblFri1Support
+        '
+        Me.lblFri1Support.AutoSize = True
+        Me.lblFri1Support.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFri1Support.Location = New System.Drawing.Point(1009, 231)
+        Me.lblFri1Support.Name = "lblFri1Support"
+        Me.lblFri1Support.Size = New System.Drawing.Size(101, 50)
+        Me.lblFri1Support.TabIndex = 50
+        Me.lblFri1Support.Text = "Support" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Instructor"
+        Me.lblFri1Support.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'txtFri1Course
+        '
+        Me.txtFri1Course.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFri1Course.Location = New System.Drawing.Point(985, 123)
+        Me.txtFri1Course.Name = "txtFri1Course"
+        Me.txtFri1Course.ReadOnly = True
+        Me.txtFri1Course.Size = New System.Drawing.Size(149, 22)
+        Me.txtFri1Course.TabIndex = 45
+        '
+        'lblFri1Chief
+        '
+        Me.lblFri1Chief.AutoSize = True
+        Me.lblFri1Chief.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFri1Chief.Location = New System.Drawing.Point(981, 158)
+        Me.lblFri1Chief.Name = "lblFri1Chief"
+        Me.lblFri1Chief.Size = New System.Drawing.Size(157, 25)
+        Me.lblFri1Chief.TabIndex = 48
+        Me.lblFri1Chief.Text = "Chief Instructor"
+        '
+        'txtFri2Chief
+        '
+        Me.txtFri2Chief.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFri2Chief.Location = New System.Drawing.Point(985, 558)
+        Me.txtFri2Chief.Name = "txtFri2Chief"
+        Me.txtFri2Chief.ReadOnly = True
+        Me.txtFri2Chief.Size = New System.Drawing.Size(149, 22)
+        Me.txtFri2Chief.TabIndex = 53
+        '
+        'txtFri2Course
+        '
+        Me.txtFri2Course.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFri2Course.Location = New System.Drawing.Point(985, 485)
+        Me.txtFri2Course.Name = "txtFri2Course"
+        Me.txtFri2Course.ReadOnly = True
+        Me.txtFri2Course.Size = New System.Drawing.Size(149, 22)
+        Me.txtFri2Course.TabIndex = 51
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.Location = New System.Drawing.Point(1019, 85)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(81, 25)
+        Me.Label26.TabIndex = 46
+        Me.Label26.Text = "Course"
+        '
+        'txtFri1Chief
+        '
+        Me.txtFri1Chief.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFri1Chief.Location = New System.Drawing.Point(985, 196)
+        Me.txtFri1Chief.Name = "txtFri1Chief"
+        Me.txtFri1Chief.ReadOnly = True
+        Me.txtFri1Chief.Size = New System.Drawing.Size(149, 22)
+        Me.txtFri1Chief.TabIndex = 47
+        '
+        'txtSat2Support
+        '
+        Me.txtSat2Support.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSat2Support.Location = New System.Drawing.Point(1196, 656)
+        Me.txtSat2Support.Name = "txtSat2Support"
+        Me.txtSat2Support.ReadOnly = True
+        Me.txtSat2Support.Size = New System.Drawing.Size(149, 22)
+        Me.txtSat2Support.TabIndex = 68
+        '
+        'lblSat2Support
+        '
+        Me.lblSat2Support.AutoSize = True
+        Me.lblSat2Support.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSat2Support.Location = New System.Drawing.Point(1220, 593)
+        Me.lblSat2Support.Name = "lblSat2Support"
+        Me.lblSat2Support.Size = New System.Drawing.Size(101, 50)
+        Me.lblSat2Support.TabIndex = 67
+        Me.lblSat2Support.Text = "Support" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Instructor"
+        Me.lblSat2Support.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'lblSat2Course
+        '
+        Me.lblSat2Course.AutoSize = True
+        Me.lblSat2Course.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSat2Course.Location = New System.Drawing.Point(1230, 447)
+        Me.lblSat2Course.Name = "lblSat2Course"
+        Me.lblSat2Course.Size = New System.Drawing.Size(81, 25)
+        Me.lblSat2Course.TabIndex = 64
+        Me.lblSat2Course.Text = "Course"
+        '
+        'txtSat1Support
+        '
+        Me.txtSat1Support.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSat1Support.Location = New System.Drawing.Point(1196, 294)
+        Me.txtSat1Support.Name = "txtSat1Support"
+        Me.txtSat1Support.ReadOnly = True
+        Me.txtSat1Support.Size = New System.Drawing.Size(149, 22)
+        Me.txtSat1Support.TabIndex = 61
+        '
+        'lblSat2Chief
+        '
+        Me.lblSat2Chief.AutoSize = True
+        Me.lblSat2Chief.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSat2Chief.Location = New System.Drawing.Point(1192, 520)
+        Me.lblSat2Chief.Name = "lblSat2Chief"
+        Me.lblSat2Chief.Size = New System.Drawing.Size(157, 25)
+        Me.lblSat2Chief.TabIndex = 66
+        Me.lblSat2Chief.Text = "Chief Instructor"
+        '
+        'lblSat1Support
+        '
+        Me.lblSat1Support.AutoSize = True
+        Me.lblSat1Support.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSat1Support.Location = New System.Drawing.Point(1220, 231)
+        Me.lblSat1Support.Name = "lblSat1Support"
+        Me.lblSat1Support.Size = New System.Drawing.Size(101, 50)
+        Me.lblSat1Support.TabIndex = 62
+        Me.lblSat1Support.Text = "Support" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Instructor"
+        Me.lblSat1Support.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'txtSat1Course
+        '
+        Me.txtSat1Course.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSat1Course.Location = New System.Drawing.Point(1196, 123)
+        Me.txtSat1Course.Name = "txtSat1Course"
+        Me.txtSat1Course.ReadOnly = True
+        Me.txtSat1Course.Size = New System.Drawing.Size(149, 22)
+        Me.txtSat1Course.TabIndex = 57
+        '
+        'lblSat1Chief
+        '
+        Me.lblSat1Chief.AutoSize = True
+        Me.lblSat1Chief.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSat1Chief.Location = New System.Drawing.Point(1192, 158)
+        Me.lblSat1Chief.Name = "lblSat1Chief"
+        Me.lblSat1Chief.Size = New System.Drawing.Size(157, 25)
+        Me.lblSat1Chief.TabIndex = 60
+        Me.lblSat1Chief.Text = "Chief Instructor"
+        '
+        'txtSat2Chief
+        '
+        Me.txtSat2Chief.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSat2Chief.Location = New System.Drawing.Point(1196, 558)
+        Me.txtSat2Chief.Name = "txtSat2Chief"
+        Me.txtSat2Chief.ReadOnly = True
+        Me.txtSat2Chief.Size = New System.Drawing.Size(149, 22)
+        Me.txtSat2Chief.TabIndex = 65
+        '
+        'txtSat2Course
+        '
+        Me.txtSat2Course.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSat2Course.Location = New System.Drawing.Point(1196, 485)
+        Me.txtSat2Course.Name = "txtSat2Course"
+        Me.txtSat2Course.ReadOnly = True
+        Me.txtSat2Course.Size = New System.Drawing.Size(149, 22)
+        Me.txtSat2Course.TabIndex = 63
+        '
+        'lblSat1Course
+        '
+        Me.lblSat1Course.AutoSize = True
+        Me.lblSat1Course.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSat1Course.Location = New System.Drawing.Point(1230, 85)
+        Me.lblSat1Course.Name = "lblSat1Course"
+        Me.lblSat1Course.Size = New System.Drawing.Size(81, 25)
+        Me.lblSat1Course.TabIndex = 58
+        Me.lblSat1Course.Text = "Course"
+        '
+        'txtSat1Chief
+        '
+        Me.txtSat1Chief.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSat1Chief.Location = New System.Drawing.Point(1196, 196)
+        Me.txtSat1Chief.Name = "txtSat1Chief"
+        Me.txtSat1Chief.ReadOnly = True
+        Me.txtSat1Chief.Size = New System.Drawing.Size(149, 22)
+        Me.txtSat1Chief.TabIndex = 59
+        '
         'RectangleShape1
         '
-        Me.RectangleShape1.Location = New System.Drawing.Point(754, 72)
+        Me.RectangleShape1.Location = New System.Drawing.Point(1188, 72)
         Me.RectangleShape1.Name = "RectangleShape1"
         Me.RectangleShape1.Size = New System.Drawing.Size(165, 256)
         '
         'RectangleShape2
         '
-        Me.RectangleShape2.Location = New System.Drawing.Point(754, 433)
+        Me.RectangleShape2.Location = New System.Drawing.Point(1188, 433)
         Me.RectangleShape2.Name = "RectangleShape2"
         Me.RectangleShape2.Size = New System.Drawing.Size(165, 256)
-        '
-        'RectangleShape3
-        '
-        Me.RectangleShape3.Location = New System.Drawing.Point(486, 433)
-        Me.RectangleShape3.Name = "RectangleShape3"
-        Me.RectangleShape3.Size = New System.Drawing.Size(165, 256)
-        '
-        'rectWed1
-        '
-        Me.rectWed1.Location = New System.Drawing.Point(486, 72)
-        Me.rectWed1.Name = "rectWed1"
-        Me.rectWed1.Size = New System.Drawing.Size(165, 256)
-        '
-        'TextBox6
-        '
-        Me.TextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(765, 656)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.ReadOnly = True
-        Me.TextBox6.Size = New System.Drawing.Size(149, 22)
-        Me.TextBox6.TabIndex = 43
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(789, 593)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(101, 50)
-        Me.Label8.TabIndex = 41
-        Me.Label8.Text = "Support" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Instructor"
-        Me.Label8.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(799, 447)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(81, 25)
-        Me.Label9.TabIndex = 34
-        Me.Label9.Text = "Course"
-        '
-        'TextBox7
-        '
-        Me.TextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(765, 294)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.ReadOnly = True
-        Me.TextBox7.Size = New System.Drawing.Size(149, 22)
-        Me.TextBox7.TabIndex = 28
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(761, 520)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(157, 25)
-        Me.Label10.TabIndex = 39
-        Me.Label10.Text = "Chief Instructor"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(789, 231)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(101, 50)
-        Me.Label11.TabIndex = 31
-        Me.Label11.Text = "Support" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Instructor"
-        Me.Label11.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'TextBox8
-        '
-        Me.TextBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox8.Location = New System.Drawing.Point(765, 123)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.ReadOnly = True
-        Me.TextBox8.Size = New System.Drawing.Size(149, 22)
-        Me.TextBox8.TabIndex = 21
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(761, 158)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(157, 25)
-        Me.Label12.TabIndex = 26
-        Me.Label12.Text = "Chief Instructor"
-        '
-        'TextBox9
-        '
-        Me.TextBox9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox9.Location = New System.Drawing.Point(765, 558)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.ReadOnly = True
-        Me.TextBox9.Size = New System.Drawing.Size(149, 22)
-        Me.TextBox9.TabIndex = 37
-        '
-        'TextBox10
-        '
-        Me.TextBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox10.Location = New System.Drawing.Point(765, 485)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.ReadOnly = True
-        Me.TextBox10.Size = New System.Drawing.Size(149, 22)
-        Me.TextBox10.TabIndex = 32
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(799, 85)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(81, 25)
-        Me.Label13.TabIndex = 23
-        Me.Label13.Text = "Course"
-        '
-        'TextBox11
-        '
-        Me.TextBox11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox11.Location = New System.Drawing.Point(765, 196)
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.ReadOnly = True
-        Me.TextBox11.Size = New System.Drawing.Size(149, 22)
-        Me.TextBox11.TabIndex = 24
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(520, 593)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(101, 50)
-        Me.Label14.TabIndex = 42
-        Me.Label14.Text = "Support" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Instructor"
-        Me.Label14.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(492, 520)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(157, 25)
-        Me.Label15.TabIndex = 38
-        Me.Label15.Text = "Chief Instructor"
-        '
-        'TextBox12
-        '
-        Me.TextBox12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox12.Location = New System.Drawing.Point(496, 123)
-        Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.ReadOnly = True
-        Me.TextBox12.Size = New System.Drawing.Size(149, 22)
-        Me.TextBox12.TabIndex = 20
-        '
-        'TextBox13
-        '
-        Me.TextBox13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox13.Location = New System.Drawing.Point(496, 558)
-        Me.TextBox13.Name = "TextBox13"
-        Me.TextBox13.ReadOnly = True
-        Me.TextBox13.Size = New System.Drawing.Size(149, 22)
-        Me.TextBox13.TabIndex = 36
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(530, 85)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(81, 25)
-        Me.Label16.TabIndex = 22
-        Me.Label16.Text = "Course"
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(530, 447)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(81, 25)
-        Me.Label17.TabIndex = 35
-        Me.Label17.Text = "Course"
-        '
-        'TextBox14
-        '
-        Me.TextBox14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox14.Location = New System.Drawing.Point(496, 196)
-        Me.TextBox14.Name = "TextBox14"
-        Me.TextBox14.ReadOnly = True
-        Me.TextBox14.Size = New System.Drawing.Size(149, 22)
-        Me.TextBox14.TabIndex = 25
-        '
-        'TextBox15
-        '
-        Me.TextBox15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox15.Location = New System.Drawing.Point(496, 485)
-        Me.TextBox15.Name = "TextBox15"
-        Me.TextBox15.ReadOnly = True
-        Me.TextBox15.Size = New System.Drawing.Size(149, 22)
-        Me.TextBox15.TabIndex = 33
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(492, 158)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(157, 25)
-        Me.Label18.TabIndex = 27
-        Me.Label18.Text = "Chief Instructor"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(520, 231)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(101, 50)
-        Me.Label19.TabIndex = 30
-        Me.Label19.Text = "Support" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Instructor"
-        Me.Label19.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'TextBox16
-        '
-        Me.TextBox16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox16.Location = New System.Drawing.Point(496, 294)
-        Me.TextBox16.Name = "TextBox16"
-        Me.TextBox16.ReadOnly = True
-        Me.TextBox16.Size = New System.Drawing.Size(149, 22)
-        Me.TextBox16.TabIndex = 29
-        '
-        'TextBox17
-        '
-        Me.TextBox17.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox17.Location = New System.Drawing.Point(496, 656)
-        Me.TextBox17.Name = "TextBox17"
-        Me.TextBox17.ReadOnly = True
-        Me.TextBox17.Size = New System.Drawing.Size(149, 22)
-        Me.TextBox17.TabIndex = 40
         '
         'View_Schedule
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(20.0!, 39.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1368, 881)
-        Me.Controls.Add(Me.TextBox6)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.TextBox7)
-        Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.TextBox8)
-        Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.TextBox9)
-        Me.Controls.Add(Me.TextBox10)
-        Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.TextBox11)
-        Me.Controls.Add(Me.Label14)
-        Me.Controls.Add(Me.Label15)
-        Me.Controls.Add(Me.TextBox12)
-        Me.Controls.Add(Me.TextBox13)
-        Me.Controls.Add(Me.Label16)
-        Me.Controls.Add(Me.Label17)
-        Me.Controls.Add(Me.TextBox14)
-        Me.Controls.Add(Me.TextBox15)
-        Me.Controls.Add(Me.Label18)
-        Me.Controls.Add(Me.Label19)
-        Me.Controls.Add(Me.TextBox16)
-        Me.Controls.Add(Me.TextBox17)
+        Me.Controls.Add(Me.txtSat2Support)
+        Me.Controls.Add(Me.lblSat2Support)
+        Me.Controls.Add(Me.lblSat2Course)
+        Me.Controls.Add(Me.txtSat1Support)
+        Me.Controls.Add(Me.lblSat2Chief)
+        Me.Controls.Add(Me.lblSat1Support)
+        Me.Controls.Add(Me.txtSat1Course)
+        Me.Controls.Add(Me.lblSat1Chief)
+        Me.Controls.Add(Me.txtSat2Chief)
+        Me.Controls.Add(Me.txtSat2Course)
+        Me.Controls.Add(Me.lblSat1Course)
+        Me.Controls.Add(Me.txtSat1Chief)
+        Me.Controls.Add(Me.txtFri2Support)
+        Me.Controls.Add(Me.lblFri2Support)
+        Me.Controls.Add(Me.lblFri2Course)
+        Me.Controls.Add(Me.txtFri1Support)
+        Me.Controls.Add(Me.lblFri2Chief)
+        Me.Controls.Add(Me.lblFri1Support)
+        Me.Controls.Add(Me.txtFri1Course)
+        Me.Controls.Add(Me.lblFri1Chief)
+        Me.Controls.Add(Me.txtFri2Chief)
+        Me.Controls.Add(Me.txtFri2Course)
+        Me.Controls.Add(Me.Label26)
+        Me.Controls.Add(Me.txtFri1Chief)
+        Me.Controls.Add(Me.txtThur2Support)
+        Me.Controls.Add(Me.lblThur2Support)
+        Me.Controls.Add(Me.lblThur2Course)
+        Me.Controls.Add(Me.txtThur1Support)
+        Me.Controls.Add(Me.lblThur2Chief)
+        Me.Controls.Add(Me.lblThur1Support)
+        Me.Controls.Add(Me.txtThur1Course)
+        Me.Controls.Add(Me.lblThur1Chief)
+        Me.Controls.Add(Me.txtThur2Chief)
+        Me.Controls.Add(Me.txtThur2Course)
+        Me.Controls.Add(Me.lblThur1Course)
+        Me.Controls.Add(Me.txtThur1Chief)
+        Me.Controls.Add(Me.lblWed2Support)
+        Me.Controls.Add(Me.lblWed2Chief)
+        Me.Controls.Add(Me.txtWed1Course)
+        Me.Controls.Add(Me.txtWed2Chief)
+        Me.Controls.Add(Me.lblWed1Course)
+        Me.Controls.Add(Me.lblWed2Course)
+        Me.Controls.Add(Me.txtWed1Chief)
+        Me.Controls.Add(Me.txtWed2Course)
+        Me.Controls.Add(Me.lblWed1Chief)
+        Me.Controls.Add(Me.lblWed1Support)
+        Me.Controls.Add(Me.txtWed1Support)
+        Me.Controls.Add(Me.txtWed2Support)
         Me.Controls.Add(Me.txtTue2Support)
         Me.Controls.Add(Me.lblTue2Support)
         Me.Controls.Add(Me.lblTue2Course)
@@ -926,31 +1234,59 @@ Partial Class View_Schedule
     Friend WithEvents lblTue2Support As System.Windows.Forms.Label
     Friend WithEvents txtTue2Support As System.Windows.Forms.TextBox
     Friend WithEvents rectWed1 As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents RectangleShape3 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents rectWed2 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents rectThur2 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents rectThur1 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents txtThur2Support As System.Windows.Forms.TextBox
+    Friend WithEvents lblThur2Support As System.Windows.Forms.Label
+    Friend WithEvents lblThur2Course As System.Windows.Forms.Label
+    Friend WithEvents txtThur1Support As System.Windows.Forms.TextBox
+    Friend WithEvents lblThur2Chief As System.Windows.Forms.Label
+    Friend WithEvents lblThur1Support As System.Windows.Forms.Label
+    Friend WithEvents txtThur1Course As System.Windows.Forms.TextBox
+    Friend WithEvents lblThur1Chief As System.Windows.Forms.Label
+    Friend WithEvents txtThur2Chief As System.Windows.Forms.TextBox
+    Friend WithEvents txtThur2Course As System.Windows.Forms.TextBox
+    Friend WithEvents lblThur1Course As System.Windows.Forms.Label
+    Friend WithEvents txtThur1Chief As System.Windows.Forms.TextBox
+    Friend WithEvents lblWed2Support As System.Windows.Forms.Label
+    Friend WithEvents lblWed2Chief As System.Windows.Forms.Label
+    Friend WithEvents txtWed1Course As System.Windows.Forms.TextBox
+    Friend WithEvents txtWed2Chief As System.Windows.Forms.TextBox
+    Friend WithEvents lblWed1Course As System.Windows.Forms.Label
+    Friend WithEvents lblWed2Course As System.Windows.Forms.Label
+    Friend WithEvents txtWed1Chief As System.Windows.Forms.TextBox
+    Friend WithEvents txtWed2Course As System.Windows.Forms.TextBox
+    Friend WithEvents lblWed1Chief As System.Windows.Forms.Label
+    Friend WithEvents lblWed1Support As System.Windows.Forms.Label
+    Friend WithEvents txtWed1Support As System.Windows.Forms.TextBox
+    Friend WithEvents txtWed2Support As System.Windows.Forms.TextBox
+    Friend WithEvents RectangleShape5 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents RectangleShape4 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents txtFri2Support As System.Windows.Forms.TextBox
+    Friend WithEvents lblFri2Support As System.Windows.Forms.Label
+    Friend WithEvents lblFri2Course As System.Windows.Forms.Label
+    Friend WithEvents txtFri1Support As System.Windows.Forms.TextBox
+    Friend WithEvents lblFri2Chief As System.Windows.Forms.Label
+    Friend WithEvents lblFri1Support As System.Windows.Forms.Label
+    Friend WithEvents txtFri1Course As System.Windows.Forms.TextBox
+    Friend WithEvents lblFri1Chief As System.Windows.Forms.Label
+    Friend WithEvents txtFri2Chief As System.Windows.Forms.TextBox
+    Friend WithEvents txtFri2Course As System.Windows.Forms.TextBox
+    Friend WithEvents Label26 As System.Windows.Forms.Label
+    Friend WithEvents txtFri1Chief As System.Windows.Forms.TextBox
     Friend WithEvents RectangleShape2 As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents RectangleShape1 As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
-    Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
-    Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents TextBox9 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox10 As System.Windows.Forms.TextBox
-    Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents TextBox11 As System.Windows.Forms.TextBox
-    Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents TextBox12 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox13 As System.Windows.Forms.TextBox
-    Friend WithEvents Label16 As System.Windows.Forms.Label
-    Friend WithEvents Label17 As System.Windows.Forms.Label
-    Friend WithEvents TextBox14 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox15 As System.Windows.Forms.TextBox
-    Friend WithEvents Label18 As System.Windows.Forms.Label
-    Friend WithEvents Label19 As System.Windows.Forms.Label
-    Friend WithEvents TextBox16 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox17 As System.Windows.Forms.TextBox
+    Friend WithEvents txtSat2Support As System.Windows.Forms.TextBox
+    Friend WithEvents lblSat2Support As System.Windows.Forms.Label
+    Friend WithEvents lblSat2Course As System.Windows.Forms.Label
+    Friend WithEvents txtSat1Support As System.Windows.Forms.TextBox
+    Friend WithEvents lblSat2Chief As System.Windows.Forms.Label
+    Friend WithEvents lblSat1Support As System.Windows.Forms.Label
+    Friend WithEvents txtSat1Course As System.Windows.Forms.TextBox
+    Friend WithEvents lblSat1Chief As System.Windows.Forms.Label
+    Friend WithEvents txtSat2Chief As System.Windows.Forms.TextBox
+    Friend WithEvents txtSat2Course As System.Windows.Forms.TextBox
+    Friend WithEvents lblSat1Course As System.Windows.Forms.Label
+    Friend WithEvents txtSat1Chief As System.Windows.Forms.TextBox
 End Class
