@@ -1,41 +1,23 @@
 Public Class Form1
-    Const unavailableNumber As Integer = 1001 'Will work for up to 99 instructors - Far more than the current 6
-    Private Structure Element
+    Private Structure Element 'Defines the elements for a table for the Hungarian Algorithm.
         Public value As Integer
-        Public numLines As Integer
+        Public numLines As Integer 'Stores how many time a line is drawn across an element (2 where 2 lines intersect, 1 or 0 elsewhere
     End Structure
-    Dim table(5, 4) As Element 'Test Values
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-    End Sub
+    Dim table(,) As Element
+    WriteOnly Property pTable() As Integer(,) 'Creates the table of instructors preferences and courses (by day). This is dynamic because the number of courses a week varies yaer by year.
+        Set(value As Integer(,))
+            ReDim table(value.GetLength(0) - 1, value.GetLength(1) - 1)
+            For i = 1 To value.GetLength(0) - 1
+                For j = 1 To value.GetLength(1) - 1
+                    table(i, j).value = value(i, j)
+                Next j
+            Next i
+        End Set
+    End Property
 
-    Private Sub AddTestValues()
-        'TEST VALUES
 
-        table(1, 1).value = 10
-        table(1, 2).value = 10
-        table(1, 3).value = 10
-        table(1, 4).value = 10
-        table(2, 1).value = 0
-        table(2, 2).value = 10
-        table(2, 3).value = 20
-        table(2, 4).value = 10
-        table(3, 1).value = 10
-        table(3, 2).value = 20
-        table(3, 3).value = 20
-        table(3, 4).value = 10
-        table(4, 1).value = 0
-        table(4, 2).value = 10
-        table(4, 3).value = 20
-        table(4, 4).value = 20
-        table(5, 1).value = 10
-        table(5, 2).value = 50
-        table(5, 3).value = 20
-        table(5, 4).value = 30
-
-    End Sub
-
-    Private Sub AllocateInstructors()
+    Public Sub AllocateInstructors()
         'Create Table
         Dim reduced As Boolean = False
         Dim numLines As Integer = 0
@@ -44,7 +26,6 @@ Public Class Form1
         Dim enoughWorkers As Boolean = False
         Dim numDummies As Integer
 
-        AddTestValues()
         'Check enoughWorkers
         If table.GetLength(0) >= table.GetLength(1) Then
             enoughWorkers = True
@@ -56,9 +37,9 @@ Public Class Form1
             End If
 
             'Reduce Rows
-            For i = 1 To 4 'Test value
-                For j = 1 To 4 'Test value, same as previous
-                    If table(i, j).value = 0 Then
+            For i = 1 To table.GetLength(0) - 1
+                For j = 1 To table.GetLength(1) - 1
+                    If table(i, j).value = 0 Then 'If there is a zero in the row then it cannot be reduced.
                         reduced = True
                     End If
                 Next j
@@ -68,9 +49,9 @@ Public Class Form1
                 reduced = False
             Next i
             'Reduce Columns
-            For i = 1 To 4 'Test Value
-                For j = 1 To 4
-                    If table(j, i).value = 0 Then
+            For i = 1 To table.GetLength(0) - 1
+                For j = 1 To table.GetLength(1) - 1
+                    If table(j, i).value = 0 Then 'See rows
                         reduced = True
                     End If
                 Next j
@@ -86,7 +67,7 @@ Public Class Form1
                 'Draw Line
                 numLines = DecideLines(numLines)
 
-                'Check Optimal
+                'Check Optimal - If the number of lines equas the number of workers then the solution is optimal
                 If Not isOptimal(numLines) Then
 
 
@@ -107,15 +88,16 @@ Public Class Form1
                 RemoveDummies(numDummies, allocation)
             End If
         Else
-            'End and tell user
+            'Tell user thereen't enough workers then end
+            MsgBox("Error. There are not enough assisstant instructors.")
         End If
     End Sub
 
     Private Sub RemoveDummies(ByVal numToRemove As Integer, ByRef allocation(,) As Boolean)
         Dim tableCopy(allocation.GetLength(0) - 1, allocation.GetLength(1) - 1) As Boolean
         tableCopy = allocation
-        ReDim allocation(allocation.GetLength(0) - (numToRemove + 1), allocation.GetLength(1) - (numToRemove + 1))
-        For i = 1 To allocation.GetLength(0) - 1
+        ReDim allocation(allocation.GetLength(0) - (numToRemove + 1), allocation.GetLength(1) - (numToRemove + 1)) 'The dummies will be at the end of the array (The leftmost columns looking at the array like a table
+        For i = 1 To allocation.GetLength(0) - 1                                                                   'This command cuts out the dummies from the table.
             For j = 1 To allocation.GetLength(1) - 1
                 allocation(i, j) = tableCopy(i, j)
             Next j
@@ -142,11 +124,11 @@ Public Class Form1
         Dim workerTasks(table.GetLength(0) - 1, table.GetLength(1) - 1) As Boolean
         Dim matching(workerTasks.GetLength(0) - 1, workerTasks.GetLength(1) - 1) As Boolean
         Dim maximum As Boolean = False
-        Dim path(1) As Integer 'Worker, Task alternating
+        Dim path(1) As Integer 'Worker, Task alternating. Path(0) is a worker, path(1) is a task
         'Create Bipartite graph in table form
         For i = 1 To workerTasks.GetLength(0) - 1
             For j = 1 To workerTasks.GetLength(1) - 1
-                If table(i, j).value = 0 Then
+                If table(i, j).value = 0 Then 'If the relative cost of worker i performing task j is 0, worker i can perform task j
                     workerTasks(i, j) = True
                 Else : workerTasks(i, j) = False
                 End If
@@ -155,7 +137,7 @@ Public Class Form1
 
         'Initial Matching
         matching = InitialMatching(workerTasks)
-        'Loop while Not maximum (maximum if no breakthrough
+        'Loop while Not maximum (maximum if no breakthrough)
         Do While Not maximum
             'improve matching
             maximum = Not ImproveMatching(matching, workerTasks, path)
@@ -175,7 +157,7 @@ Public Class Form1
         Dim isWorker As Boolean = True
 
 
-        For i = 1 To isFree.Length - 1
+        For i = 1 To isFree.Length - 1 'no worker is assigned yet
             isFree(i) = True
         Next i
 
@@ -221,7 +203,7 @@ Public Class Form1
                 isFreeCopy(start) = False
                 'Find Options
                 numOptions = 0
-                For i = 1 To matching.GetLength(1) - 1
+                For i = 1 To matching.GetLength(1) - 1 'If the selectd worker can do the task and the task hasn't already been taken, that task is an option
                     If workerTasks(current, i) And isFree(i + matching.GetLength(0) - 1) Then
                         options(options.Length - 1) = i
                         ReDim Preserve options(options.Length)
@@ -230,7 +212,7 @@ Public Class Form1
                 Next i
                 'Check for end
                 For i = 0 To numOptions - 1
-                    For j = 0 To ends.Length - 2
+                    For j = 0 To ends.Length - 2 'If the worker can do a previously unallocated task, the new allocation has increased by a worker-task pair. A breakthrough has occured.
                         If options(i) = ends(j) Then
                             path(count) = options(i)
                             breakthrough = True
@@ -238,14 +220,14 @@ Public Class Form1
                     Next j
                 Next i
                 'Choose next value
-                Do While Not breakthrough And numOptions > 0 And count2 <= options.Length - 1
+                Do While Not breakthrough And numOptions > 0 And count2 <= options.Length - 1 'If there was no breakthrough and there are still options available, test the next option.
                     'Update path
                     path(count) = options(count2)
                     ReDim Preserve path(count + 1)
                     'repeat for next value
                     breakthrough = Alternate(workerTasks, matching, options(count2), Not isWorker, ends, isFree, path, count + 1, breakthrough)
                 Loop
-                If Not breakthrough Then
+                If Not breakthrough And count = 1 Then 'If no breakthroughs have occured, there are no options left and no possibility of backtracking, the solution is as good as it will get. This shouldn't ever happen because the hungarian algorithm should always provide a solvable solution, but it's better to e safe than sorry.
                     maximum = True
                 End If
             Else 'Is not worker
@@ -254,7 +236,7 @@ Public Class Form1
                 isFree(start + matching.GetLength(0) - 1) = False
                 isFreeCopy(start + matching.GetLength(0) - 1) = False
                 'Find next step
-                Do Until found
+                Do Until found 'This is the worker to which this task is currently assigned.
                     count2 = count2 + 1
                     If workerTasks(count2, start) And isFree(count2) Then
                         found = True
@@ -274,7 +256,7 @@ Public Class Form1
         Return breakthrough
     End Function
 
-    Private Function FindStart(ByVal matching(,) As Boolean) As Integer
+    Private Function FindStart(ByVal matching(,) As Boolean) As Integer 'Find the first unassigned worker
         Dim start As Integer
         Dim match As Boolean = True
         For i = 1 To matching.GetLength(0) - 1
@@ -294,7 +276,7 @@ Public Class Form1
         Return start
     End Function
 
-    Private Function FindEnds(ByVal matching(,) As Boolean) As Integer()
+    Private Function FindEnds(ByVal matching(,) As Boolean) As Integer() 'Finds all unassigned tasks
         Dim ends(0) As Integer
         Dim match As Boolean
 
@@ -323,7 +305,7 @@ Public Class Form1
             match = False
             For j = 1 To workerTasks.GetLength(1) - 1
                 If Not match And Not tasks(j) Then
-                    If workerTasks(i, j) = True Then
+                    If workerTasks(i, j) = True Then 'If worker i can do task j and neither have been assigned, they are assigned to each other. This gives a starting point for ImproveMatching
                         matching(i, j) = True
                         tasks(j) = True
                         match = True
@@ -343,7 +325,7 @@ Public Class Form1
         Next i
     End Sub
 
-    Private Sub AddElement(ByVal e As Integer)
+    Private Sub AddElement(ByVal e As Integer) 'Add e to all elements with two lines
         For i = 1 To table.GetLength(0) - 1
             For j = 1 To table.GetLength(1) - 1
                 If table(i, j).numLines = 2 Then
@@ -353,7 +335,7 @@ Public Class Form1
         Next i
     End Sub
 
-    Private Sub SubtractElement(ByVal e As Integer)
+    Private Sub SubtractElement(ByVal e As Integer) 'Subtract e from all uncovered elements
         For i = 1 To table.GetLength(0) - 1
             For j = 1 To table.GetLength(1) - 1
                 If table(i, j).numLines = 0 Then
@@ -364,7 +346,17 @@ Public Class Form1
     End Sub
 
     Private Function FindElement() As Integer
-        Dim e As Integer = unavailableNumber
+        Dim e As Integer = 0
+        'e must be larger than any of the uncovered elements. Rather than make e a large number, I have found the largest element (easier because there cannot be an element below 0) and added 1 to make e. This makes e less arbitrar-e
+        For i = 1 To table.GetLength(0) - 1
+            For j = 1 To table.GetLength(1) - 1
+                If table(i, j).numLines = 0 And table(i, j).value <> 0 And table(i, j).value > e Then
+                    e = table(i, j).value
+                End If
+            Next j
+        Next i
+
+        e = e + 1
         'Go through each element and record the smallest uncovered element
         For i = 1 To table.GetLength(0) - 1
             For j = 1 To table.GetLength(1) - 1
@@ -413,11 +405,6 @@ Public Class Form1
         Next i
     End Sub
 
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        AllocateInstructors()
-    End Sub
-
     Private Function DecideLines(ByVal numLines As Integer) As Integer
         Dim numZeros((table.GetLength(0) - 1) + (table.GetLength(1) - 1)) As Integer 'Rows then columns
         Dim count As Integer
@@ -427,7 +414,7 @@ Public Class Form1
         For i = 1 To table.GetLength(0) - 1
             count = 0
             For j = 1 To table.GetLength(1) - 1
-                If table(i, j).value = 0 And table(i, j).numLines = 0 Then
+                If table(i, j).value = 0 And table(i, j).numLines = 0 Then 'count the number of uncovered 0s. 
                     count = count + 1
                 End If
             Next j
@@ -469,7 +456,7 @@ Public Class Form1
     End Function
 
     Private Sub DrawLine(ByVal isRow As Boolean, ByVal num As Integer)
-        If isRow Then
+        If isRow Then 'Lines must be drawn across an entire row or column
             For i = 1 To table.GetLength(0) - 1
                 table(num, i).numLines = table(num, i).numLines + 1
             Next i
